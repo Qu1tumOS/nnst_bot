@@ -37,17 +37,17 @@ async def process_button_1_press(callback: CallbackQuery):
 
 
 @router.callback_query(F.data == 'update_button_tomorrow')
-async def process_button__press(callback: CallbackQuery):
+async def process_button_2_press(callback: CallbackQuery):
     tomorrow = 1
     request_site = group_par('421',
                              'обновление запроса на завтра',
                              callback.from_user.username)
     try:
         if print_day(date(tomorrow), request_site) != 'единственный выходной 🥳':
-            await callback.message.answer(f'`{print_day(date(tomorrow), request_site)}`',
-                                          parse_mode='MarkdownV2',
-                                          reply_markup=keyboard_tomorrow
-                                          )
+            await callback.message.edit_text(f'`{print_day(date(tomorrow), request_site)}`',
+                                             parse_mode='MarkdownV2',
+                                             reply_markup=keyboard_tomorrow
+                                             )
         else:
             await callback.message.edit_text(f'`{print_day(date(tomorrow + 1), request_site)}`',
                                              parse_mode='MarkdownV2',

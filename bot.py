@@ -21,7 +21,9 @@ async def main() -> None:
         BotCommand(command='/today',
                    description='Пары на сегодня'),
         BotCommand(command='/tomorrow',
-                   description='Пары на завтра')
+                   description='Пары на завтра'),
+        BotCommand(command='/donate',
+                   description='чисто на карман накинуть хочу')
     ]
 
     dp.include_router(user_handlers.router)

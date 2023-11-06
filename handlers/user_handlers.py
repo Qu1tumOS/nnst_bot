@@ -52,3 +52,10 @@ async def drop_timetable_tomorrow(message: Message):
                              parse_mode='MarkdownV2',
                              reply_markup=keyboard_tomorrow
                              )
+
+
+@router.message(Command(commands='donate'))
+async def donate(message: Message):
+    await message.answer('[на аренду сервака](https://www.tinkoff.ru/rm/zagotovkin.vladimir1/thU442057)',
+                         parse_mode='MarkdownV2'
+                        )
