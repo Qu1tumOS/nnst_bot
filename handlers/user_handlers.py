@@ -16,7 +16,9 @@ keyboard_tomorrow = create_inline_kb(1, 'update_button_tomorrow')
 
 @router.message(CommandStart())
 async def process_start_command(message: Message):
-    await message.answer(text="привет")
+    await message.answer(
+        text="привет"
+        )
 
 
 @router.message(Command(commands='today'))
@@ -26,10 +28,11 @@ async def drop_timetable_today(message: Message):
                              'запрос пар на сегодня',
                              message.from_user.username)
     if today in request_site:
-        await message.answer(f'`{print_day(today, request_site)}`',
-                             parse_mode='MarkdownV2',
-                             reply_markup=keyboard_today
-                             )
+        await message.answer(
+            text=f'`{print_day(today, request_site)}`',
+            parse_mode='MarkdownV2',
+            reply_markup=keyboard_today
+        )
     else:
         await message.answer('На сегодня пар уже не будет')
 
@@ -42,20 +45,15 @@ async def drop_timetable_tomorrow(message: Message):
                              'запрос пар на завтра',
                              message.from_user.username)
     if print_day(date(tomorrow), request_site) != 'единственный выходной 🥳':
-        await message.answer(f'`{print_day(date(tomorrow), request_site)}`',
-                             parse_mode='MarkdownV2',
-                             reply_markup=keyboard_tomorrow
-                             )
+        await message.answer(
+            text=f'`{print_day(date(tomorrow), request_site)}`',
+            parse_mode='MarkdownV2',
+            reply_markup=keyboard_tomorrow
+        )
     else:
         await message.answer('''Завтра выходной, вот пары на понедельник''')
-        await message.answer(f'`{print_day(date(next_tmrw), request_site)}`',
-                             parse_mode='MarkdownV2',
-                             reply_markup=keyboard_tomorrow
-                             )
-
-
-@router.message(Command(commands='donate'))
-async def donate(message: Message):
-    await message.answer('[на аренду сервака](https://www.tinkoff.ru/rm/zagotovkin.vladimir1/thU442057)',
-                         parse_mode='MarkdownV2'
-                        )
+        await message.answer(
+            text=f'`{print_day(date(next_tmrw), request_site)}`',
+            parse_mode='MarkdownV2',
+            reply_markup=keyboard_tomorrow
+        )

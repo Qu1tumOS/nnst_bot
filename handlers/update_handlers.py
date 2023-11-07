@@ -15,25 +15,27 @@ keyboard_tomorrow = create_inline_kb(1, 'update_button_tomorrow')
 @router.callback_query(F.data == 'update_button_today')
 async def process_button_1_press(callback: CallbackQuery):
     today = date(0)
-    request_site = group_par('421',
+    week_pars = group_par('421',
                              'обновление запроса на сегодня',
                              callback.from_user.username)
 
     try:
-        if today in request_site:
-            check = print_day(today, request_site)
-            if callback.message.text in check:
+        if today in week_pars:
+            check = print_day(today, week_pars)
+            if callback.message.text not in check:
                 await callback.message.edit_text(
                     text=f'`{check}`',
                     parse_mode='MarkdownV2',
                     reply_markup=callback.message.reply_markup
                 )
+            else:
+                await callback.answer(text='Обновлено ✅')
         else:
-            await callback.message.edit_text('На сегодня пар уже не будет')
-        await callback.answer(text='Обновлео ✅')
-
-    except Exception:
+            await callback.message.edit_text('Сегодня пар уже не будет')
         await callback.answer(text='Обновлено ✅')
+
+    except Exception as x:
+        print(f'ошибка в выводе пар на сегодня :{x}')
 
 
 @router.callback_query(F.data == 'update_button_tomorrow')
@@ -44,15 +46,17 @@ async def process_button_2_press(callback: CallbackQuery):
                              callback.from_user.username)
     try:
         if print_day(date(tomorrow), request_site) != 'единственный выходной 🥳':
-            await callback.message.edit_text(f'`{print_day(date(tomorrow), request_site)}`',
-                                             parse_mode='MarkdownV2',
-                                             reply_markup=keyboard_tomorrow
-                                             )
+            await callback.message.edit_text(
+                text=f'`{print_day(date(tomorrow), request_site)}`',
+                parse_mode='MarkdownV2',
+                reply_markup=keyboard_tomorrow
+            )
         else:
-            await callback.message.edit_text(f'`{print_day(date(tomorrow + 1), request_site)}`',
-                                             parse_mode='MarkdownV2',
-                                             reply_markup=keyboard_tomorrow
-                                             )
+            await callback.message.edit_text(
+                text=f'`{print_day(date(tomorrow + 1), request_site)}`',
+                parse_mode='MarkdownV2',
+                reply_markup=keyboard_tomorrow
+            )
 
         await callback.answer(text='Обновлено ✅')
     except Exception:

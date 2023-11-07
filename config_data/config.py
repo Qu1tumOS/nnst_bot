@@ -16,3 +16,8 @@ def load_config(path: str | None = None) -> Config:
     env = Env()
     env.read_env(path)
     return Config(tg_bot=TgBot(token=env('BOT_TOKEN')))
+
+def payment_url():
+    env = Env()
+    env.read_env()
+    return env('PAY_URL')
