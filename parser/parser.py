@@ -38,7 +38,7 @@ def group_par(group: str = '421',
         for td in tr:
             check_para = td.find('a', class_='z1')
             check_cab = td.find('a', class_='z2')
-            para = check_para.text if check_para else '-'
+            para = check_para.text if check_para else ' - '
             cab = check_cab.text if check_cab else ' - '
 
             if td.get('rowspan') == '6':

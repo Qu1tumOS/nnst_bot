@@ -24,7 +24,7 @@ URL = payment_url()
 buttons = [
     InlineKeyboardButton(
         text="меню",
-        callback_data='menu_button_1_pressed'
+        callback_data='menu_button'
     ),
 
     InlineKeyboardButton(

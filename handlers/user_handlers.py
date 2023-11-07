@@ -7,11 +7,13 @@ from parser.lex_day import print_day
 
 from keyboards.keyboard_creator import create_inline_kb
 
+from lexicon.lexicon import rasp
+
 
 router = Router()
 
-keyboard_today = create_inline_kb(1, 'update_button_today')
-keyboard_tomorrow = create_inline_kb(1, 'update_button_tomorrow')
+keyboard_today = create_inline_kb(2, 'menu_button', 'update_button_today')
+keyboard_tomorrow = create_inline_kb(2, 'menu_button', 'update_button_tomorrow')
 
 
 @router.message(CommandStart())
@@ -56,4 +58,12 @@ async def drop_timetable_tomorrow(message: Message):
             text=f'`{print_day(date(next_tmrw), request_site)}`',
             parse_mode='MarkdownV2',
             reply_markup=keyboard_tomorrow
+        )
+
+
+@router.message(Command(commands='rasp'))
+async def process_start_command(message: Message):
+    await message.answer(
+        text=f'`{rasp}`',
+        parse_mode='MarkdownV2'
         )

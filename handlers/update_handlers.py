@@ -8,8 +8,8 @@ from keyboards.keyboard_creator import create_inline_kb
 
 router = Router()
 
-keyboard_today = create_inline_kb(1, 'update_button_today')
-keyboard_tomorrow = create_inline_kb(1, 'update_button_tomorrow')
+keyboard_today = create_inline_kb(2, 'menu_button', 'update_button_today')
+keyboard_tomorrow = create_inline_kb(2, 'menu_button', 'update_button_tomorrow')
 
 
 @router.callback_query(F.data == 'update_button_today')
@@ -61,3 +61,8 @@ async def process_button_2_press(callback: CallbackQuery):
         await callback.answer(text='Обновлено ✅')
     except Exception:
         await callback.answer(text='Обновлено ✅')
+
+
+@router.callback_query(F.data == 'menu_button')
+async def process_button_2_press(callback: CallbackQuery):
+    await callback.answer(text='пока что в разработке ;)')
