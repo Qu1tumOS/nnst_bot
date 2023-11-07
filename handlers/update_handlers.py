@@ -1,8 +1,11 @@
+import datetime
+
 from aiogram import Router, F
 from aiogram.types import CallbackQuery
 
 from parser.parser import group_par, date
 from parser.lex_day import print_day
+
 from keyboards.keyboard_creator import create_inline_kb
 
 
@@ -65,4 +68,6 @@ async def process_button_2_press(callback: CallbackQuery):
 
 @router.callback_query(F.data == 'menu_button')
 async def process_button_2_press(callback: CallbackQuery):
+    print(f"x: {'нажатие кнопки меню'.ljust(44, ' ')} {datetime.datetime.now().strftime('%d.%m.%Y %H:%M')}\
+          user: {callback.from_user.username}")
     await callback.answer(text='пока что в разработке ;)')

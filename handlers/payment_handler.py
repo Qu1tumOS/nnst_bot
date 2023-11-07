@@ -1,6 +1,8 @@
-from aiogram import Router, Bot
+import datetime
+
+from aiogram import Router, F
 from aiogram.filters import Command
-from aiogram.types import Message, InputFile
+from aiogram.types import Message, CallbackQuery
 
 from keyboards.payment_keyboard import Pay_keyboard
 

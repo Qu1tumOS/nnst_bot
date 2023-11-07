@@ -22,7 +22,7 @@ def group_par(group: str = '421',
 
     print(f'''{count}: {appoint.ljust(35, ' ')}\
           {datetime.datetime.now().strftime('%d.%m.%Y %H:%M')}\
-          user:{user_name}''')
+          user: {user_name}''')
     count += 1
 
     soup = bs(response.text, 'html.parser')

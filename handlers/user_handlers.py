@@ -36,7 +36,7 @@ async def drop_timetable_today(message: Message):
             reply_markup=keyboard_today
         )
     else:
-        await message.answer('На сегодня пар уже не будет')
+        await message.answer('Сегодня пар уже не будет')
 
 
 @router.message(Command(commands='tomorrow'))
