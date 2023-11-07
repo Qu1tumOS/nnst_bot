@@ -13,7 +13,9 @@ from lexicon.lexicon import rasp
 router = Router()
 
 keyboard_today = create_inline_kb(2, 'menu_button', 'update_button_today')
+keyboard_not_today = create_inline_kb(2, 'menu_button', 'next_day_par')
 keyboard_tomorrow = create_inline_kb(2, 'menu_button', 'update_button_tomorrow')
+
 
 
 @router.message(CommandStart())
@@ -36,7 +38,10 @@ async def drop_timetable_today(message: Message):
             reply_markup=keyboard_today
         )
     else:
-        await message.answer('Сегодня пар уже не будет')
+        await message.answer(
+            text='На сегодня пар уже не будет',
+            reply_markup=keyboard_not_today
+        )
 
 
 @router.message(Command(commands='tomorrow'))

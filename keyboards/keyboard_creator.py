@@ -6,7 +6,7 @@ LEXICON: dict[str, str] = {
     'update_button_today': 'Обновить',
     'update_button_tomorrow': 'Обновить',
     'menu_button': 'Меню',
-    'but_4': 'Кнопка 4',
+    'next_day_par': 'На завтра',
     'but_5': 'Кнопка 5'}
 
 BUTTONS: dict[str, str] = {

@@ -71,3 +71,17 @@ async def process_button_2_press(callback: CallbackQuery):
     print(f"x: {'нажатие кнопки меню'.ljust(44, ' ')} {datetime.datetime.now().strftime('%d.%m.%Y %H:%M')}\
           user: {callback.from_user.username}")
     await callback.answer(text='пока что в разработке ;)')
+
+
+@router.callback_query(F.data == 'next_day_par')
+async def process_button_2_press(callback: CallbackQuery):
+    today_next = date(1)
+    request_site = group_par('421',
+                             'запрос пар на сегодня',
+                             callback.from_user.username)
+    await callback.message.edit_text(
+        text=f'`{print_day(today_next, request_site)}`',
+        parse_mode='MarkdownV2',
+        reply_markup=keyboard_tomorrow
+    )
+    await callback.answer(text='Обновлено ✅')
