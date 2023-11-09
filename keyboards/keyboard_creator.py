@@ -6,8 +6,20 @@ LEXICON: dict[str, str] = {
     'update_button_today': 'Обновить',
     'update_button_tomorrow': 'Обновить',
     'menu_button': 'Меню',
-    'next_day_par': 'На завтра',
-    'but_5': 'Кнопка 5'}
+    'next_day_par': 'Пары завтра',
+    'register_button': 'Регистрация',
+    'check_user_button': 'Вход',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+    'but_null': 'Кнопка 5',
+
+    }
 
 BUTTONS: dict[str, str] = {
     'btn_1': '1',

@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher, Router
 from aiogram.types import BotCommand
 
 from config_data.config import Config, load_config
-from handlers import user_handlers, update_handlers, payment_handler
+from handlers import user_handlers, update_handlers, payment_handlers, other_handlers
 
 
 router = Router()
@@ -24,12 +24,13 @@ async def main() -> None:
         BotCommand(command='/tomorrow',
                    description='Пары на завтра'),
         BotCommand(command='/donate',
-                   description='чисто на карман накинуть хочу')
+                   description='на развитие')
     ]
 
     dp.include_router(user_handlers.router)
     dp.include_router(update_handlers.router)
-    dp.include_router(payment_handler.router)
+    dp.include_router(payment_handlers.router)
+    dp.include_router(other_handlers.router)
 
     await bot.set_my_commands(main_menu_commands)
     await bot.delete_webhook(drop_pending_updates=True)

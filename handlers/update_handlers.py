@@ -66,10 +66,8 @@ async def process_button_2_press(callback: CallbackQuery):
         await callback.answer(text='Обновлено ✅')
 
 
-@router.callback_query(F.data == 'menu_button')
+@router.callback_query(F.data.in_(['menu_button', 'register_button', 'check_user_button']))
 async def process_button_2_press(callback: CallbackQuery):
-    print(f"x: {'нажатие кнопки меню'.ljust(44, ' ')} {datetime.datetime.now().strftime('%d.%m.%Y %H:%M')}\
-          user: {callback.from_user.username}")
     await callback.answer(text='пока что в разработке ;)')
 
 
@@ -84,4 +82,3 @@ async def process_button_2_press(callback: CallbackQuery):
         parse_mode='MarkdownV2',
         reply_markup=keyboard_tomorrow
     )
-    await callback.answer(text='Обновлено ✅')

@@ -15,13 +15,14 @@ router = Router()
 keyboard_today = create_inline_kb(2, 'menu_button', 'update_button_today')
 keyboard_not_today = create_inline_kb(2, 'menu_button', 'next_day_par')
 keyboard_tomorrow = create_inline_kb(2, 'menu_button', 'update_button_tomorrow')
-
+keyboard_menu = create_inline_kb(2, 'register_button', 'check_user_button')
 
 
 @router.message(CommandStart())
 async def process_start_command(message: Message):
     await message.answer(
-        text="привет"
+        text="Зарегестрируйся, что бы начать\nили нажми 'suuu' что бы проверить регестрировался ли ты раньше",
+        reply_markup=keyboard_menu
         )
 
 
@@ -72,3 +73,12 @@ async def process_start_command(message: Message):
         text=f'`{rasp}`',
         parse_mode='MarkdownV2'
         )
+
+
+@router.message(Command(commands='week'))
+async def drop_timetable(message: Message):
+    request_site = group_par()
+    for day in request_site:
+        await message.answer(text=f'`{print_day(day, request_site)}`',
+                             parse_mode='MarkdownV2'
+                             )
