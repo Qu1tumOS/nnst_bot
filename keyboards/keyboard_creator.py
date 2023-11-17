@@ -7,18 +7,22 @@ LEXICON: dict[str, str] = {
     'update_button_tomorrow': 'Обновить',
     'menu_button': 'Меню',
     'next_day_par': 'Пары завтра',
-    'register_button': 'Регистрация',
-    'check_user_button': 'Вход',
+    'log_button': 'Вход',
     'today_pars_button': 'Сегодня',
     'tomorrow_pars_button': 'Завтра',
     'user_info': 'Профиль',
-    'but_null': 'Кнопка 5',
-    'but_null': 'Кнопка 5',
-    'but_null': 'Кнопка 5',
-    'but_null': 'Кнопка 5',
-    'but_null': 'Кнопка 5',
-    'but_null': 'Кнопка 5',
 
+    'pn_button': 'Пн',
+    'vt_button': 'Вт',
+    'sr_button': 'Ср',
+    'cht_button': 'Чт',
+    'pt_button': 'Пт',
+    'sb_button': 'СБ',
+
+    'week_buttons': 'На неделю',
+    'NNST': 'ННСТ',
+    'NAMT': 'НАМТ',
+    
     }
 
 BUTTONS: dict[str, str] = {

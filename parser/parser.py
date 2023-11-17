@@ -12,19 +12,11 @@ def date(offset_days: int):
             datetime.timedelta(days=offset_days)).strftime('%d.%m.%Y')
 
 
-def group_par(group: str = '421',
-              appoint: str = 'Запрос на сервер',
-              user_name: str = '') -> dict:
+def group_par(group: str = '421') -> dict:
     global count
     url = 'http://raspisanie.nnst.ru/public/www/' + all_groups[group]
 
     response = requests.get(url)
-
-    print(f'''{count}: {appoint.ljust(35, ' ')}\
-          {datetime.datetime.now().strftime('%d.%m.%Y %H:%M')}\
-          user: {user_name}''')
-    count += 1
-
     soup = bs(response.text, 'html.parser')
     data = soup.find_all('tr')
 
