@@ -11,6 +11,7 @@ LEXICON: dict[str, str] = {
     'today_pars_button': 'Сегодня',
     'tomorrow_pars_button': 'Завтра',
     'user_info': 'Профиль',
+    'edit_user_info': 'Редактировать',
 
     'pn_button': 'Пн',
     'vt_button': 'Вт',
@@ -20,9 +21,17 @@ LEXICON: dict[str, str] = {
     'sb_button': 'СБ',
 
     'week_buttons': 'На неделю',
-    'NNST': 'ННСТ',
+    'NST': 'НСТ',
     'NAMT': 'НАМТ',
-    
+    '1_subgroup': '1',
+    '2_subgroup': '2',
+
+    'edit_collage': 'Техникум',
+    'edit_group': 'Группу',
+    'edit_subgroup': 'Подгруппу',
+    'back_profile': '<- Вернуться',
+    'back_edit': '<- Вернуться'
+
     }
 
 BUTTONS: dict[str, str] = {

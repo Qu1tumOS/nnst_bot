@@ -12,7 +12,7 @@ def date(offset_days: int):
             datetime.timedelta(days=offset_days)).strftime('%d.%m.%Y')
 
 
-def group_par(group: str = '421') -> dict:
+def group_par(group: str) -> dict:
     global count
     url = 'http://raspisanie.nnst.ru/public/www/' + all_groups[group]
 

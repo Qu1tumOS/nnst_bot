@@ -22,7 +22,7 @@ class User(Base):
     tg_id = Column(BigInteger, primary_key=True)
     name = Column(String)
     collage = Column(String(5), default=None)
-    group = Column(Integer, default=None)
+    group = Column(String, default=None)
     subgroup = Column(Integer, default=None)
     # date_of_registration = Column()
     # subscription_activation = Column()

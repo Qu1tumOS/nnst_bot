@@ -11,7 +11,8 @@ days = {
 }
 
 
-def print_day(rasp_date, list_days, subgroup=0):
+def print_day(rasp_date, list_days, subgroup):
+    subgroup -= 1
     day = datetime.datetime.strptime(rasp_date, "%d.%m.%Y")
 
     date = f"""{day.strftime('%d.%m.%Y')}"""
